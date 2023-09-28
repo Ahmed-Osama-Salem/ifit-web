@@ -16,27 +16,25 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: {
-          100: '#f7fafc',
-          200: '#edf2f7',
-          300: '#e2e8f0',
-          400: '#cbd5e0',
-          500: '#a0aec0',
-          600: '#718096',
-          700: '#4a5568',
-          800: '#2d3748',
-          900: '#1a202c',
-        },
         blue: {
-          100: '#ebf8ff',
-          200: '#bee3f8',
-          300: '#90cdf4',
-          400: '#63b3ed',
-          500: '#4299e1',
-          600: '#3182ce',
-          700: '#2b6cb0',
-          800: '#2c5282',
-          900: '#2a4365',
+          light: '#E9EBF8',
+          normal: '#4D7EA8',
+          dark: '#3A5F7E',
+        },
+        yellow: {
+          light: '#FEFCE8',
+          normal: '#F6E117',
+          dark: '#B9A911',
+        },
+        brown: {
+          light: '#E9E8E8',
+          normal: '#231A16',
+          dark: '#1A1411',
+        },
+        black: {
+          light: '#E6E6E6',
+          normal: '#000000',
+          dark: '#000000',
         },
         /* NextBit design system */
         main: { default: '#009ef7', light: '#ccecfd' },

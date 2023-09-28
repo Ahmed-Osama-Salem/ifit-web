@@ -15,17 +15,17 @@ const Index = () => {
       >
         <Container
           className="flex h-full w-full flex-col items-center justify-center"
-          bgColor="bg-[#F6E117]"
+          bgColor="bg-yellow-normal"
         >
           <Lottie
             animationData={logoJson}
             loop={1}
             autoplay
-            className="w-[500px] translate-x-[-10px]"
+            className="w-[30rem] translate-x-[-10px]"
           />
           <TypographyText
             tag="h1"
-            className="translate-y-[-48px] text-5xl font-extrabold tracking-widest text-[#231A16]"
+            className="translate-y-[-45px] text-5xl font-extrabold tracking-widest text-brown-normal "
           >
             iFIT
           </TypographyText>
