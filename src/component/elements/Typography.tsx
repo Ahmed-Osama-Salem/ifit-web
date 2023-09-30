@@ -9,7 +9,7 @@ type Props = {
   className?: string;
 } & React.HTMLProps<HTMLElementTagNameMap[TagNames]>;
 
-export const TypographyText: React.FC<Props> = ({
+const TypographyText: React.FC<Props> = ({
   tag,
   children,
   className,
@@ -22,3 +22,5 @@ export const TypographyText: React.FC<Props> = ({
   );
   return Element;
 };
+
+export default TypographyText;
