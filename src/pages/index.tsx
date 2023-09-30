@@ -1,7 +1,7 @@
 import Lottie from 'lottie-react';
 
 import Container from '@/component/elements/Container';
-import { TypographyText } from '@/component/elements/Typography';
+import TypographyText from '@/component/elements/Typography';
 import { Meta } from '@/component/layouts/Meta';
 import { Main } from '@/component/templates/Main';
 import logoJson from '@/public/assets/json/logo.json';
