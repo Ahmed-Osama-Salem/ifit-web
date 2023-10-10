@@ -1,5 +1,7 @@
 import Lottie from 'lottie-react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
+import { Button } from '@/component/elements/Button';
 import Container from '@/component/elements/Container';
 import TypographyText from '@/component/elements/Typography';
 import { Meta } from '@/component/layouts/Meta';
@@ -7,6 +9,9 @@ import { Main } from '@/component/templates/Main';
 import logoJson from '@/public/assets/json/logo.json';
 
 const Index = () => {
+  const { data: session } = useSession();
+  console.log(session?.user);
+
   return (
     <Main meta={<Meta title="ifit" description="ifit." />}>
       <Container
@@ -29,6 +34,20 @@ const Index = () => {
           >
             iFIT
           </TypographyText>
+          <Button
+            bgType="default"
+            bgClass="btn_valid"
+            onClick={() => signIn('google')}
+          >
+            sign in
+          </Button>
+          <Button
+            bgType="default"
+            bgClass="btn_critical"
+            onClick={() => signOut()}
+          >
+            sign out
+          </Button>
         </Container>
       </Container>
     </Main>

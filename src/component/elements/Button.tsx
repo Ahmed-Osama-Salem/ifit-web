@@ -68,7 +68,7 @@ export const Button: React.FC<Props> = ({
       } ${classNames(className)}`,
       ...props,
     },
-    children
+    children,
   );
   return Element;
 };
