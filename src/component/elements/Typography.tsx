@@ -18,7 +18,7 @@ const TypographyText: React.FC<Props> = ({
   const Element = React.createElement(
     tag,
     { className: classNames(className), ...props },
-    children
+    children,
   );
   return Element;
 };

@@ -47,7 +47,8 @@ type Props = {
   tag?: 'button' | 'a';
   children: React.ReactNode;
   className?: string;
-  // btnStyle?: BtnType;
+  rounded?: 'rounded-[8px]' | 'rounded-[100px]';
+  padding?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement> &
   React.AnchorHTMLAttributes<HTMLAnchorElement> &
   (DefaultStyle<BtnType> | LightStyle<BtnType>);
@@ -56,14 +57,20 @@ export const Button: React.FC<Props> = ({
   tag = 'button',
   children,
   className,
+  bgType, // Renamed to `bgtype` if it's intended to be a custom attribute
+  bgClass,
+  rounded,
+  padding,
   ...props
 }) => {
   const Element = React.createElement(
     tag,
     {
       className: `${
-        props.bgClass !== undefined
-          ? `${btnClasses[props.bgClass as BtnType][props.bgType]} button`
+        bgClass !== undefined
+          ? `${btnClasses[bgClass as BtnType][bgType]} button ${
+              rounded !== undefined ? rounded : 'rounded-md'
+            } ${padding !== undefined ? padding : 'p-2'}`
           : 'bg-white'
       } ${classNames(className)}`,
       ...props,

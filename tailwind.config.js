@@ -37,7 +37,7 @@ module.exports = {
           dark: '#000000',
         },
         /* NextBit design system */
-        main: { default: '#009ef7', light: '#ccecfd' },
+        main: { default: '#F6E117', light: '#FEFCE8' },
         critical: { default: '#f1416c', light: '#fcd9e2' },
         valid: { default: '#50cd89', light: '#dcf5e7' },
         note: { default: '#7239ea', light: '#e3d7fb' },
