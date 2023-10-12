@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import axios from 'axios';
+import { setCookie } from 'cookies-next';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
@@ -25,12 +26,20 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
           console.log(token);
           // console.log(account);
           await axios
-            .post('http://localhost:8000/auth/exists', { email: token.email })
+            .post('http://localhost:8000/auth/exists', {
+              email: token.email,
+              name: token.name,
+              image: token.picture,
+              provider: account.provider,
+            })
             .then((data) => {
-              console.log(data.data);
+              console.log(data.data, 'from backend');
+              setCookie('_user', data.data.data.user, { req, res });
+              return data;
             })
             .catch((err) => {
               console.log(err);
+              return err;
             });
         }
         return token;

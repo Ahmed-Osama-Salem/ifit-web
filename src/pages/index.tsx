@@ -1,81 +1,64 @@
-import type { GetSessionParams } from 'next-auth/react';
-import { getSession } from 'next-auth/react';
+import { getCookie } from 'cookies-next';
+import type { GetServerSidePropsContext } from 'next';
 
 import Container from '@/component/elements/Container';
+import TypographyText from '@/component/elements/Typography';
+import MainLayout from '@/component/layouts/MainLayout';
 import { Meta } from '@/component/layouts/Meta';
-import Navbar from '@/component/modules/Navbar';
 import { Main } from '@/component/templates/Main';
 
-const Index = ({ user }: { user: any }) => {
+interface UserModel {
+  name: string;
+  email: string;
+  image: string;
+  provider?: string;
+}
+
+const Index = ({ user }: { user: UserModel }) => {
   console.log(user, 'xxxxxxxxxxxxxxxxxxxxx');
 
   return (
     <Main meta={<Meta title="ifit" description="ifit." />}>
-      <Container
-        flexDirection="column"
-        className="flex flex-col items-center justify-center"
-        tag="section"
-      >
-        <Navbar />
-        <Container
-          tag="div"
-          bgColor="bg-gradient-to-b from-yellow-light to-transparent via-transparent"
-          className="h-auto min-h-screen w-full max-w-[1920px]"
-        >
+      <MainLayout>
+        {user ? (
+          <Container
+            bgColor="none"
+            className="flex flex-col items-center text-center"
+          >
+            <TypographyText
+              tag="h3"
+              className=" text-[36px] font-bold text-brown-normal"
+            >
+              {user.name}
+            </TypographyText>
+            <img
+              src={user.image}
+              alt="user_avatar"
+              className="h-full w-[100px] rounded-full"
+            />
+          </Container>
+        ) : (
           <Container bgColor="bg-yellow-light text-center">content</Container>
-        </Container>
-      </Container>
-      {/* <Container
-        className="h-screen w-screen rounded-none "
-        bgColor="bg-[#00213d]"
-      >
-        <Container
-          className="flex h-full w-full flex-col items-center justify-center"
-          bgColor="bg-yellow-normal"
-        >
-          <Lottie
-            animationData={logoJson}
-            loop={1}
-            autoplay
-            className="w-[30rem] translate-x-[-10px]"
-          />
-          <TypographyText
-            tag="h1"
-            className="translate-y-[-45px] text-5xl font-extrabold tracking-widest text-brown-normal "
-          >
-            iFIT
-          </TypographyText>
-          <Button
-            bgType="default"
-            bgClass="btn_valid"
-            onClick={() => signIn('google')}
-          >
-            sign in
-          </Button>
-          <Button
-            bgType="default"
-            bgClass="btn_critical"
-            onClick={() => signOut()}
-          >
-            sign out
-          </Button>
-        </Container>
-      </Container> */}
+        )}
+      </MainLayout>
     </Main>
   );
 };
 
 export default Index;
 
-export async function getServerSideProps(ctx: GetSessionParams | undefined) {
-  const session = await getSession(ctx);
-  if (!session) {
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const { req, res } = ctx;
+  // const session = await getSession(ctx);
+  const data = await getCookie('_user', { req, res });
+
+  if (!data) {
     return {
       props: {},
     };
   }
-  const { user } = session;
+  // const { user } = session;
   return {
-    props: { user },
+    props: { user: JSON.parse(data) },
   };
 }
