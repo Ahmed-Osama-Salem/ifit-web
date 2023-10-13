@@ -1,16 +1,19 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { useDispatch } from 'react-redux';
 
+import { setPopupName, showPopup } from '@/apps/redux/slice/popupSlice';
+import type { UserModel } from '@/pages';
 import logo from '@/public/assets/images/logo.png';
 
 import { Button } from '../elements/Button';
 import Container from '../elements/Container';
 import TypographyText from '../elements/Typography';
+import AuthModal from './auth/AuthModal';
 
-const Navbar = () => {
+const Navbar = ({ user }: { user?: UserModel }) => {
   const pathname = usePathname();
-
+  const dispatch = useDispatch();
   const navigationTabs = [
     { label: 'Home', href: '/' },
     { label: 'Articles', href: '/articles' },
@@ -57,15 +60,38 @@ const Navbar = () => {
           );
         })}
       </Container>
-      <Button
-        bgType="default"
-        bgClass="btn_main"
-        rounded="rounded-[100px]"
-        padding="px-6 py-2"
-        onClick={() => signIn('google')}
-      >
-        sign in
-      </Button>
+      {!user ? (
+        <Button
+          bgType="default"
+          bgClass="btn_main"
+          rounded="rounded-[100px]"
+          padding="px-6 py-2"
+          onClick={() => {
+            dispatch(setPopupName('Auth'));
+            dispatch(showPopup(<AuthModal />));
+          }}
+        >
+          sign in
+        </Button>
+      ) : (
+        <Container
+          bgColor="none"
+          className="flex flex-row items-center justify-center gap-2 text-center"
+          flexDirection="row"
+        >
+          {/* <TypographyText
+            tag="h3"
+            className=" text-[16px] font-bold text-brown-normal"
+          >
+            {user?.name}
+          </TypographyText> */}
+          <img
+            src={user?.image}
+            alt="user_avatar"
+            className="h-full w-[50px] rounded-full"
+          />
+        </Container>
+      )}
     </Container>
   );
 };

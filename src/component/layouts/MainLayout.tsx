@@ -1,10 +1,14 @@
 import type { ReactNode } from 'react';
 
+import type { UserModel } from '@/pages';
+
 import Container from '../elements/Container';
 import Navbar from '../modules/Navbar';
+import Popup from '../modules/Popup';
 
 interface MainLayoutProps {
   children: ReactNode;
+  user?: UserModel | undefined;
 }
 
 const MainLayout = (props: MainLayoutProps) => {
@@ -14,7 +18,8 @@ const MainLayout = (props: MainLayoutProps) => {
       className="flex flex-col items-center justify-center"
       tag="section"
     >
-      <Navbar />
+      <Navbar user={props.user} />
+      <Popup />
       <Container
         tag="div"
         bgColor="bg-gradient-to-b from-yellow-light to-transparent via-transparent"

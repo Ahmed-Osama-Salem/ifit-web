@@ -20,7 +20,7 @@ const popupSlice = createSlice({
   reducers: {
     setPopupName: (
       state,
-      action: PayloadAction<'Auth' | 'create_services'>
+      action: PayloadAction<'Auth' | 'create_services'>,
     ) => {
       state.popupName = action.payload;
     },

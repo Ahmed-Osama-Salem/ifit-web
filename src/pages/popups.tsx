@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Container from '@/component/elements/Container';
-import { TypographyText } from '@/component/elements/Typography';
-import Popups from '@/component/modules/Popup';
+import TypographyText from '@/component/elements/Typography';
 
-const Popup = () => {
+const Popups = () => {
   return (
     <Container
       className="h-screen w-screen rounded-none "
@@ -23,10 +22,10 @@ const Popup = () => {
             ups
           </TypographyText>
         </TypographyText>
-        <Popups />
+        {/* <Popup /> */}
       </Container>
     </Container>
   );
 };
 
-export default Popup;
+export default Popups;
