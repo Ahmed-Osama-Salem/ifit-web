@@ -1,9 +1,9 @@
 import { getCookie } from 'cookies-next';
 import type { GetServerSidePropsContext } from 'next';
 
-import Container from '@/component/elements/Container';
 import MainLayout from '@/component/layouts/MainLayout';
 import { Meta } from '@/component/layouts/Meta';
+import HomeView from '@/component/sections/HomeView';
 import { Main } from '@/component/templates/Main';
 
 export interface UserModel {
@@ -19,7 +19,7 @@ const Index = ({ user }: { user: UserModel }) => {
   return (
     <Main meta={<Meta title="ifit" description="ifit." />}>
       <MainLayout user={user}>
-        <Container bgColor="bg-yellow-light text-center">content</Container>
+        <HomeView />
       </MainLayout>
     </Main>
   );
