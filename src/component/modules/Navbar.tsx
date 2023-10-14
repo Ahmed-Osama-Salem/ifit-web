@@ -25,7 +25,7 @@ const Navbar = ({ user }: { user?: UserModel }) => {
     <Container
       flexDirection="row"
       bgColor="bg-white"
-      className="flex h-[87px] w-full items-center justify-between px-[60px]"
+      className="fixed top-0 flex h-[87px] w-full items-center justify-between px-[60px]"
     >
       <Container
         flexDirection="row"

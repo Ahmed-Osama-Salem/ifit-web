@@ -1,6 +1,7 @@
 import { Button } from '../elements/Button';
 import Container from '../elements/Container';
 import TypographyText from '../elements/Typography';
+import BlogCard from '../modules/blog/BlogCard';
 
 const HomeView = () => {
   return (
@@ -9,7 +10,7 @@ const HomeView = () => {
       <Container
         bgColor="none"
         flexDirection="column"
-        className="flex h-[60vh] items-center justify-center gap-[30px]"
+        className="flex h-[75vh] items-center justify-center gap-[30px]"
       >
         <TypographyText
           tag="span"
@@ -72,6 +73,9 @@ const HomeView = () => {
           >
             View all
           </TypographyText>
+        </Container>
+        <Container bgColor="bg-none" className="py-7">
+          <BlogCard type="top" />
         </Container>
       </Container>
     </>
