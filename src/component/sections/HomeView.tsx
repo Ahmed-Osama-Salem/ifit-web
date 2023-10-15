@@ -74,8 +74,20 @@ const HomeView = () => {
             View all
           </TypographyText>
         </Container>
-        <Container bgColor="bg-none" className="py-7">
+        <Container
+          bgColor="bg-none"
+          flexDirection="row"
+          className="flex w-full gap-[107px] py-7"
+        >
           <BlogCard type="top" />
+          <Container
+            bgColor="bg-none"
+            flexDirection="column"
+            className="flex gap-12"
+          >
+            <BlogCard type="topSmall" />
+            <BlogCard type="topSmall" />
+          </Container>
         </Container>
       </Container>
     </>

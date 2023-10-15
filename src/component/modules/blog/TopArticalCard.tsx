@@ -5,13 +5,13 @@ const TopArticalCard = () => {
   return (
     <Container
       flexDirection="column"
-      bgColor="none"
-      className="flex max-h-[777px] w-[50%] items-center"
+      bgColor="bg-none"
+      className="flex max-h-[777px] min-w-[60%] max-w-[755px] items-center"
     >
       <Container
         flexDirection="column"
         bgColor="none"
-        className="flex w-[90%] gap-8"
+        className="flex w-full gap-8"
       >
         <Container
           bgColor="none"
