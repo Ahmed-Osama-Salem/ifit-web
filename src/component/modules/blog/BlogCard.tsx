@@ -11,12 +11,14 @@
 // pubish
 // helpful
 
+import RegularArticalCard from './RegularArticalCard';
 import TopArticalCard from './TopArticalCard';
 import TopSmallArticalCard from './TopSmallArticalCard';
 
 const articalComponents = {
   top: TopArticalCard,
   topSmall: TopSmallArticalCard,
+  reguler: RegularArticalCard,
 };
 
 interface BlogCardProps {

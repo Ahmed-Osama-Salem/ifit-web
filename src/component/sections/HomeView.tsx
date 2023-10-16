@@ -2,6 +2,7 @@ import { Button } from '../elements/Button';
 import Container from '../elements/Container';
 import TypographyText from '../elements/Typography';
 import BlogCard from '../modules/blog/BlogCard';
+import HeaderBar from '../modules/HeaderBar';
 
 const HomeView = () => {
   return (
@@ -54,39 +55,56 @@ const HomeView = () => {
       </Container>
 
       {/* newest blog section */}
-      <Container bgColor="none">
-        <Container
-          tag="div"
-          bgColor="none"
-          flexDirection="row"
-          className="flex items-center justify-between"
-        >
-          <TypographyText
-            tag="p"
-            className="text-[24px] font-bold text-black-normal"
-          >
-            Newest
-          </TypographyText>{' '}
-          <TypographyText
-            tag="p"
-            className="text-[16px] font-bold text-black-normal"
-          >
-            View all
-          </TypographyText>
-        </Container>
-        <Container
-          bgColor="bg-none"
-          flexDirection="row"
-          className="flex w-full gap-[107px] py-7"
-        >
-          <BlogCard type="top" />
+      <Container
+        bgColor="bg-none"
+        flexDirection="column"
+        className="flex gap-16"
+      >
+        <Container bgColor="bg-none">
+          <HeaderBar title="Newest" />
           <Container
             bgColor="bg-none"
-            flexDirection="column"
-            className="flex gap-12"
+            flexDirection="row"
+            className="flex w-full gap-[107px] py-7"
           >
-            <BlogCard type="topSmall" />
-            <BlogCard type="topSmall" />
+            <BlogCard type="top" />
+            <Container
+              bgColor="bg-none"
+              flexDirection="column"
+              className="flex w-full gap-12"
+            >
+              <BlogCard type="topSmall" />
+              <BlogCard type="topSmall" />
+            </Container>
+          </Container>
+        </Container>
+
+        {/* all blogs section */}
+        <Container bgColor="bg-none">
+          <HeaderBar title="Articals" />
+          <Container
+            bgColor="bg-none"
+            flexDirection="row"
+            className="flex w-full gap-[107px] py-12"
+          >
+            <Container
+              bgColor="bg-none"
+              flexDirection="column"
+              className="flex w-[50%] gap-16"
+            >
+              <BlogCard type="reguler" />
+              <BlogCard type="reguler" />
+              <BlogCard type="reguler" />
+            </Container>
+            <Container
+              bgColor="bg-none"
+              flexDirection="column"
+              className="flex w-[50%] gap-16"
+            >
+              <BlogCard type="reguler" />
+              <BlogCard type="reguler" />
+              <BlogCard type="reguler" />
+            </Container>
           </Container>
         </Container>
       </Container>
