@@ -1,9 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 
+import type { UserModel } from '@/app/page';
 import { setPopupName, showPopup } from '@/apps/redux/slice/popupSlice';
-import type { UserModel } from '@/pages';
 import logo from '@/public/assets/images/logo.png';
 
 import { Button } from '../elements/Button';
@@ -14,6 +16,9 @@ import AuthModal from './auth/AuthModal';
 const Navbar = ({ user }: { user?: UserModel }) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
+
+  console.log(user, 'navbar');
+
   const navigationTabs = [
     { label: 'Home', href: '/' },
     { label: 'Articles', href: '/articles' },
@@ -79,12 +84,7 @@ const Navbar = ({ user }: { user?: UserModel }) => {
           className="flex flex-row items-center justify-center gap-2 text-center"
           flexDirection="row"
         >
-          {/* <TypographyText
-            tag="h3"
-            className=" text-[16px] font-bold text-brown-normal"
-          >
-            {user?.name}
-          </TypographyText> */}
+          {/* <h2>{user.name}</h2> */}
           <img
             src={user?.image}
             alt="user_avatar"

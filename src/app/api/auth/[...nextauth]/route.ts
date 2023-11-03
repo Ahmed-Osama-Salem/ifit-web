@@ -1,20 +1,18 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import axios from 'axios';
-import { setCookie } from 'cookies-next';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { cookies } from 'next/headers';
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+async function auth(req: NextApiRequest, res: NextApiResponse) {
   const providers = [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ];
-
-  // export default NextAuth(authOptions);
 
   return NextAuth(req, res, {
     providers,
@@ -24,7 +22,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
           token.accessToken = account.access_token;
 
           console.log(token);
-          // console.log(account);
+
           await axios
             .post('http://localhost:8000/auth/exists', {
               email: token.email,
@@ -34,7 +32,12 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
             })
             .then((data) => {
               console.log(data.data, 'from backend');
-              setCookie('_user', data.data.data.user, { req, res });
+              // setCookie('_user', data.data.data.user, { req, res });
+              const { name, email, image } = data.data.data.user;
+              const cookieStore = { name, email, image };
+              cookies().set('_user', JSON.stringify(cookieStore));
+              // res.setHeader()
+
               return data;
             })
             .catch((err) => {
@@ -44,14 +47,8 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
         }
         return token;
       },
-
-      // async session({ session, token, user }) {
-      //   // Send properties to the client, like an access_token from a provider.
-      //   // session.accessToken = token.accessToken;
-      //   console.log(session, 'see');
-
-      //   return session;
-      // },
     },
   });
 }
+
+export { auth as GET, auth as POST };
