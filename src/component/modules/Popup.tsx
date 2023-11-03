@@ -1,3 +1,5 @@
+'use client';
+
 import withPopup from '@/HOC/withPopup';
 
 const Popups = () => {
