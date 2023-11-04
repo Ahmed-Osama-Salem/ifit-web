@@ -28,11 +28,11 @@ const Container: FC<ContainerProps> = ({
           'flex-col': flexDirection === 'column',
           'flex-row': flexDirection === 'row',
         },
-        className
+        className,
       ),
       ...rest,
     },
-    children
+    children,
   );
 };
 
