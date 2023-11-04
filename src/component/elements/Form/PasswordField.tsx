@@ -6,7 +6,7 @@ import { BiHide, BiShowAlt } from 'react-icons/bi';
 
 import type { PasswordProps } from '@/apps/interface/Elements';
 
-import { TypographyText } from '../Typography';
+import TypographyText from '../Typography';
 
 const PasswordField: React.FC<
   PasswordProps & FieldAttributes<PasswordProps>

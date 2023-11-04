@@ -20,7 +20,7 @@ const HeroSection = () => {
         Ask
         <TypographyText
           tag="span"
-          className="text-[57px] font-bold text-yellow-normal"
+          className="mx-3 text-[57px] font-bold text-yellow-normal"
         >
           i Fit
         </TypographyText>

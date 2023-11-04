@@ -1,12 +1,11 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import axios from 'axios';
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { cookies } from 'next/headers';
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-async function auth(req: NextApiRequest, res: NextApiResponse) {
+async function auth(req: any, res: any) {
   const providers = [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -21,7 +20,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
         if (account) {
           token.accessToken = account.access_token;
 
-          console.log(token);
+          // console.log(token);
 
           await axios
             .post('http://localhost:8000/auth/exists', {
@@ -31,7 +30,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
               provider: account.provider,
             })
             .then((data) => {
-              console.log(data.data, 'from backend');
+              // console.log(data.data, 'from backend');
               // setCookie('_user', data.data.data.user, { req, res });
               const { name, email, image } = data.data.data.user;
               const cookieStore = { name, email, image };
@@ -41,7 +40,7 @@ async function auth(req: NextApiRequest, res: NextApiResponse) {
               return data;
             })
             .catch((err) => {
-              console.log(err);
+              // console.log(err);
               return err;
             });
         }

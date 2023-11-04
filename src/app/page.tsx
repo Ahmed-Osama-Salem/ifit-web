@@ -10,9 +10,7 @@ export interface UserModel {
   provider?: string;
 }
 
-export const getServerSideProps = async () => {
-  // const session = await getSession(ctx);
-  // const data = await getCookie('_user', { req, res });
+const googleAuth = async () => {
   const data = cookies().get('_user');
 
   if (!data) {
@@ -20,17 +18,13 @@ export const getServerSideProps = async () => {
       props: {},
     };
   }
-  // const { user } = session;
   return {
     props: { user: JSON.parse(data.value) },
   };
 };
 
 const Page = async () => {
-  // console.log(user, 'xxxxxxxxxxxxxxxxxxxxx');
-
-  const { props } = await getServerSideProps();
-  console.log(props.user);
+  const { props } = await googleAuth();
 
   return (
     <MainLayout user={props.user}>

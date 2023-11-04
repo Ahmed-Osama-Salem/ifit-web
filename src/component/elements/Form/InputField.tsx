@@ -5,7 +5,7 @@ import { Field, useField } from 'formik';
 import type { HTMLInputTypeAttribute } from 'react';
 import React, { useState } from 'react';
 
-import { TypographyText } from '../Typography';
+import TypographyText from '../Typography';
 
 export type InputProps = {
   label?: string;

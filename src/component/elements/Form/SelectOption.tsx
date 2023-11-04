@@ -9,7 +9,7 @@ interface SelectOptionProps {
 }
 const SelectOption = ({ options, value, onChange }: SelectOptionProps) => {
   const [selectedOption, setSelectedOption] = useState<any | undefined>(
-    options.find((option) => option.value === value)
+    options.find((option) => option.value === value),
   );
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -44,7 +44,7 @@ const SelectOption = ({ options, value, onChange }: SelectOptionProps) => {
           onClick={() => setIsOpen(!isOpen)}
           role="button"
           tabIndex={0}
-          className=" flex h-[40px] w-full cursor-pointer items-center justify-between rounded-lg  border-[1px] border-gray-500 pl-6 pr-2 text-sm  text-black transition-all  duration-150 dark:text-white"
+          className="flex h-[40px] w-full cursor-pointer items-center justify-between rounded-lg  border-[1px] border-gray-500 pl-6 pr-2 text-sm  text-black-normal transition-all  duration-150 dark:text-white"
         >
           {/* flex w-full h-[40px] text-xs text-black cursor-pointer items-center justify-between rounded-md border-[1px] border-gray-CD pl-6 pr-2 transition-all duration-150 */}
           {selectedOption?.label || 'Select'}

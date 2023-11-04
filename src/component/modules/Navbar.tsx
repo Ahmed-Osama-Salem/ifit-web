@@ -17,8 +17,6 @@ const Navbar = ({ user }: { user?: UserModel }) => {
   const pathname = usePathname();
   const dispatch = useDispatch();
 
-  console.log(user, 'navbar');
-
   const navigationTabs = [
     { label: 'Home', href: '/' },
     { label: 'Articles', href: '/articles' },
