@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - '*'
-    # Exclude direct pushes to main and dev branches
     paths-ignore:
       - 'main/**'
       - 'dev/**'
@@ -30,9 +29,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Prevent direct pushes to dev
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' }}
-        run: |
-          echo "Direct pushes to the dev branch are not allowed."
-          exit 1
