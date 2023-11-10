@@ -39,6 +39,7 @@
     "lottie-react": "^2.4.0",
     "next": "^14.0.1",
     "next-auth": "^4.24.4",
+    "next-intl": "^2.22.1",
     "next-seo": "^6.4.0",
     "next-sitemap": "^4.2.3",
     "react": "^18.2.0",
