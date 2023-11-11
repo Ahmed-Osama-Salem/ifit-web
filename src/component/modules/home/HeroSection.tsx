@@ -6,25 +6,26 @@ import { Button } from '../../elements/Button';
 import Container from '../../elements/Container';
 import TypographyText from '../../elements/Typography';
 
-const HeroSection = () => {
+const HeroSection = ({ dict }: { dict: any }) => {
   return (
     <Container
       bgColor="none"
       flexDirection="column"
       className="flex h-[75vh] items-center justify-center gap-[30px]"
     >
+      {/* <LangSwitch /> */}
       <TypographyText
         tag="span"
         className="text-[57px] font-bold text-brown-normal"
       >
-        Ask
+        {`${dict.Index.title} `}
         <TypographyText
           tag="span"
-          className="mx-3 text-[57px] font-bold text-yellow-normal"
+          className="mx-1 text-[57px] font-bold text-yellow-normal"
         >
-          i Fit
+          {` ${dict.Index.brand} `}
         </TypographyText>
-        for any consultant
+        {`${dict.Index.subTitle} `}
       </TypographyText>
       <Container
         bgColor="none"

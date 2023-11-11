@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 import './global.css';
 
 import { Nunito } from 'next/font/google';
@@ -32,15 +33,21 @@ const googleAuth = async () => {
   };
 };
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'ar' }];
+}
+
 export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: any;
 }) {
   const { props } = await googleAuth();
 
   return (
-    <html lang="en">
+    <html lang={params.lang} dir={params.lang === 'ar' ? 'rtl' : 'ltr'}>
       <body className={nunito.className}>
         <NextAuthProvider>
           <ReduxProvider>

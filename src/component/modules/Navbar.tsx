@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 
-import type { UserModel } from '@/app/page';
+import type { UserModel } from '@/app/[lang]/page';
 import { setPopupName, showPopup } from '@/apps/redux/slice/popupSlice';
 import logo from '@/public/assets/images/logo.png';
 
