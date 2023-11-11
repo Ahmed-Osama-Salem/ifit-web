@@ -10,6 +10,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/ar',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
