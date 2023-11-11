@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { UserModel } from '@/app/page';
+import type { UserModel } from '@/app/[lang]/page';
 
 import Container from '../elements/Container';
 import Navbar from '../modules/Navbar';
