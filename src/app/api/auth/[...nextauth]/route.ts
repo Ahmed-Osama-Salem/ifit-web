@@ -23,7 +23,7 @@ async function auth(req: any, res: any) {
           // console.log(token);
 
           await axios
-            .post('http://localhost:8000/auth/exists', {
+            .post('http://13.49.223.120:8000/auth/exists', {
               email: token.email,
               name: token.name,
               image: token.picture,
