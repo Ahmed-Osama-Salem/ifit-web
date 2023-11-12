@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useDispatch } from 'react-redux';
@@ -35,7 +36,8 @@ const Navbar = ({ user }: { user?: UserModel }) => {
         bgColor="bg-white"
         className="flex h-full items-center"
       >
-        <img src={logo.src} className="h-auto w-[4rem]" alt="ifit" />
+        {/* <img src={logo.src} className="h-auto w-[4rem]" alt="ifit" /> */}
+        <Image src={logo.src} alt="ifit" width={64} height={100} />
         <TypographyText
           tag="h3"
           className="translate-x-[-10px] pt-2 text-[36px] font-bold text-brown-normal"
@@ -83,10 +85,17 @@ const Navbar = ({ user }: { user?: UserModel }) => {
           flexDirection="row"
         >
           {/* <h2>{user.name}</h2> */}
-          <img
+          {/* <img
             src={user?.image}
             alt="user_avatar"
             className="h-full w-[50px] rounded-full"
+          /> */}
+          <Image
+            src={user?.image}
+            alt="user_avatar"
+            className="h-full w-[50px] rounded-full"
+            width={50}
+            height={100}
           />
         </Container>
       )}
