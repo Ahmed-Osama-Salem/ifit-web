@@ -10,6 +10,7 @@ import NextAuthProvider from '@/component/providers/NextAuthProvider';
 
 // If loading a variable font, you don't need to specify the font weight
 const nunito = Nunito({ subsets: ['latin'] });
+// const cairo = Cairo({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'I fit',

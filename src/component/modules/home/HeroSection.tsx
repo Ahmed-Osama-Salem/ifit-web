@@ -36,13 +36,15 @@ const HeroSection = ({ dict }: { dict: any }) => {
           tag="p"
           className="text-[24px] font-bold text-brown-normal"
         >
-          Now with Ifit you can answer for all questions you need and learn
+          {`${dict.Index.slogan1} `}
+          {/* Now with Ifit you can answer for all questions you need and learn */}
         </TypographyText>
         <TypographyText
           tag="p"
           className="text-[24px] font-bold text-brown-normal"
         >
-          more about work for article and blogs to be brans and tob el nob
+          {`${dict.Index.slogan2} `}
+          {/* more about work for article and blogs to be brans and tob el nob */}
         </TypographyText>
       </Container>
       <Button
