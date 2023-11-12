@@ -1,4 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
 import './global.css';
 
 import { Nunito } from 'next/font/google';
