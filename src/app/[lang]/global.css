@@ -11,6 +11,8 @@
   @apply transition-all duration-150 ease-linear shadow-md hover:shadow-sm 
 }
 
+
+
 @tailwind components;
 @tailwind utilities;
 
