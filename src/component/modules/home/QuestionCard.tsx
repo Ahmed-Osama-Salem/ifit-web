@@ -32,15 +32,16 @@ const QuestionCard = ({
       <Container
         bgColor="bg-none"
         flexDirection="row"
-        className="flex  items-center gap-4"
+        className="flex items-center gap-4"
       >
-        <Image
-          src={questionImage}
-          alt="userImage"
-          className="h-9 w-9 rounded-full"
-          width={36}
-          height={36}
-        />
+        <div className="relative h-9 w-9">
+          <Image
+            src={questionImage}
+            alt="userImage"
+            className="h-9 w-9 rounded-full object-fill"
+            fill
+          />
+        </div>
 
         <TypographyText tag="h4" className="text-[#666E80]">
           {author}
