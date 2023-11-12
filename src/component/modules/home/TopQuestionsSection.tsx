@@ -53,7 +53,7 @@ const TopQuestionsSection = () => {
     <Container bgColor="bg-none">
       <HeaderBar title="Top Questions" />
       <Container bgColor="bg-none" flexDirection="row" className="flex gap-14">
-        <div className="rounded-lg p-8">
+        <div className="mt-5 rounded-xl bg-gray-200 p-8">
           <TypographyText tag="h3">
             The best choices for power engineering
           </TypographyText>

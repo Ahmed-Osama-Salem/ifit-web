@@ -21,6 +21,11 @@ module.exports = {
           normal: '#4D7EA8',
           dark: '#3A5F7E',
         },
+        gray: {
+          light: '#98A1B3',
+          // normal: '#98A1B3',
+          dark: '#232633',
+        },
         yellow: {
           light: '#FEFCE8',
           normal: '#F6E117',
