@@ -1,8 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 
 import type { UserModel } from '@/app/[lang]/page';
@@ -13,17 +11,18 @@ import { Button } from '../elements/Button';
 import Container from '../elements/Container';
 import TypographyText from '../elements/Typography';
 import AuthModal from './auth/AuthModal';
+import Hamburger from './Hamburger';
 
 const Navbar = ({ user }: { user?: UserModel }) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const dispatch = useDispatch();
 
-  const navigationTabs = [
-    { label: 'Home', href: '/' },
-    { label: 'Articles', href: '/articles' },
-    { label: 'Questions', href: '/questions' },
-    { label: 'Community', href: '/community' },
-  ];
+  // const navigationTabs = [
+  //   { label: 'Home', href: '/' },
+  //   { label: 'Articles', href: '/articles' },
+  //   { label: 'Questions', href: '/questions' },
+  //   { label: 'Community', href: '/community' },
+  // ];
 
   return (
     <Container
@@ -31,6 +30,27 @@ const Navbar = ({ user }: { user?: UserModel }) => {
       bgColor="bg-white"
       className="fixed top-0 flex h-[87px] w-full items-center justify-between px-[60px]"
     >
+      <Container
+        bgColor="none"
+        flexDirection="row"
+        className="flex flex-row gap-10"
+      >
+        <Hamburger />
+        {/* {navigationTabs.map((el, i) => {
+          return (
+            <Link key={i as number} href={el.href}>
+              <TypographyText
+                tag="h3"
+                className={`cursor-pointer text-[16px] font-bold  ${
+                  pathname === el.href ? 'text-brown-normal' : 'text-[#98A1B3]'
+                }`}
+              >
+                {el.label}
+              </TypographyText>
+            </Link>
+          );
+        })} */}
+      </Container>
       <Container
         flexDirection="row"
         bgColor="bg-white"
@@ -44,26 +64,6 @@ const Navbar = ({ user }: { user?: UserModel }) => {
         >
           i Fit
         </TypographyText>
-      </Container>
-      <Container
-        bgColor="none"
-        flexDirection="row"
-        className="flex flex-row gap-10"
-      >
-        {navigationTabs.map((el, i) => {
-          return (
-            <Link key={i as number} href={el.href}>
-              <TypographyText
-                tag="h3"
-                className={`cursor-pointer text-[16px] font-bold  ${
-                  pathname === el.href ? 'text-brown-normal' : 'text-[#98A1B3]'
-                }`}
-              >
-                {el.label}
-              </TypographyText>
-            </Link>
-          );
-        })}
       </Container>
       {!user ? (
         <Button
