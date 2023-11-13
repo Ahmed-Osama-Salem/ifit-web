@@ -1,7 +1,10 @@
 'use client';
 
+import '@/component/modules/navbar.css';
+
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import type { UserModel } from '@/app/[lang]/page';
@@ -23,19 +26,33 @@ const Navbar = ({ user }: { user?: UserModel }) => {
   // const pathname = usePathname();
   const dispatch = useDispatch();
 
-  // const navigationTabs = [
-  //   { label: 'Home', href: '/' },
-  //   { label: 'Articles', href: '/articles' },
-  //   { label: 'Questions', href: '/questions' },
-  //   { label: 'Community', href: '/community' },
-  // ];
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
+  const navigationTabs = [
+    { id: 1, label: 'My Questions', href: '/', x: 20, delay: 0.25 },
+    { id: 2, label: 'Articles', href: '/', x: 30, delay: 0.45 },
+    { id: 3, label: 'Home', href: '/', x: 40, delay: 0.65 },
+    { id: 4, label: 'My Setting', href: '/', x: 50, delay: 0.75 },
+  ];
+
+  const navigationTags = [
+    { id: 1, label: 'Ask now', href: '/', x: 20, delay: 0.25 },
+    { id: 2, label: 'Blog', href: '/', x: 30, delay: 0.45 },
+    { id: 3, label: 'Contact us', href: '/', x: 40, delay: 0.65 },
+  ];
 
   return (
     <>
       <Container
         flexDirection="row"
         bgColor="bg-white"
-        className="fixed top-0 z-10 flex h-[87px] w-full items-center justify-between px-[60px]"
+        className="fixed top-0 z-10 flex h-[87px] w-full items-center justify-between px-[150px]"
       >
         <Container
           bgColor="none"
@@ -43,20 +60,6 @@ const Navbar = ({ user }: { user?: UserModel }) => {
           className="flex flex-row gap-10"
         >
           <Hamburger isOpen={isOpen} toggleNavbar={toggleNavbar} />
-          {/* {navigationTabs.map((el, i) => {
-          return (
-            <Link key={i as number} href={el.href}>
-            <TypographyText
-                tag="h3"
-                className={`cursor-pointer text-[16px] font-bold  ${
-                  pathname === el.href ? 'text-brown-normal' : 'text-[#98A1B3]'
-                }`}
-                >
-                {el.label}
-              </TypographyText>
-              </Link>
-          );
-        })} */}
         </Container>
         <Container
           flexDirection="row"
@@ -91,12 +94,6 @@ const Navbar = ({ user }: { user?: UserModel }) => {
             className="flex flex-row items-center justify-center gap-2 text-center"
             flexDirection="row"
           >
-            {/* <h2>{user.name}</h2> */}
-            {/* <img
-            src={user?.image}
-            alt="user_avatar"
-            className="h-full w-[50px] rounded-full"
-          /> */}
             <Image
               src={user?.image}
               alt="user_avatar"
@@ -107,34 +104,83 @@ const Navbar = ({ user }: { user?: UserModel }) => {
           </Container>
         )}
       </Container>
-      {isOpen ? (
-        <div className="absolute left-0 top-[87px] h-[90vh] w-full bg-white px-16">
-          <TypographyText
-            tag="h3"
-            className="text-[80px] font-bold text-brown-normal"
+      <AnimatePresence initial={false} mode="wait">
+        {isOpen && (
+          <motion.article
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0 }}
+            className="fixed left-0 top-[87px] z-10 h-[90vh] w-full bg-yellow-light px-[150px]"
           >
-            My Questions
-          </TypographyText>
-          <TypographyText
-            tag="h3"
-            className="text-[80px] font-bold text-brown-normal"
-          >
-            Articels
-          </TypographyText>{' '}
-          <TypographyText
-            tag="h3"
-            className="text-[80px] font-bold text-brown-normal"
-          >
-            Home
-          </TypographyText>{' '}
-          <TypographyText
-            tag="h3"
-            className="text-[80px] font-bold text-brown-normal"
-          >
-            My Settings
-          </TypographyText>
-        </div>
-      ) : null}
+            <Container tag="main" bgColor="bg-none" flexDirection="column">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, staggerChildren: 0.1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Container
+                  bgColor="bg-none"
+                  flexDirection="row"
+                  tag="div"
+                  className="flex gap-3 py-10"
+                >
+                  {navigationTags.map((el) => {
+                    return (
+                      <button
+                        key={el.id}
+                        type="button"
+                        className="group rounded-full border-[1px] px-4 transition-colors duration-200 ease-linear hover:bg-yellow-normal"
+                      >
+                        <TypographyText
+                          tag="p"
+                          className="text-2xl font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white"
+                        >
+                          {el.label}
+                        </TypographyText>
+                      </button>
+                    );
+                  })}
+                </Container>
+              </motion.div>
+              <Container
+                tag="div"
+                bgColor="bg-brown-light"
+                className="h-[0.5px] w-full"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, staggerChildren: 0.1 }}
+                exit={{ opacity: 0 }}
+              >
+                <div className="w-[40%] py-2">
+                  {navigationTabs.map((el) => (
+                    <motion.h3
+                      key={el.id}
+                      initial={{ opacity: 0, x: el.x }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: el.delay,
+                      }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <TypographyText
+                        tag="h3"
+                        className="nav-item w-fit cursor-pointer text-[5rem] font-bold uppercase"
+                      >
+                        {el.label}
+                      </TypographyText>
+                    </motion.h3>
+                  ))}
+                </div>
+              </motion.div>
+            </Container>
+          </motion.article>
+        )}
+      </AnimatePresence>
     </>
   );
 };

@@ -1,0 +1,15 @@
+.nav-item {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #F6E117, #F6E117 50%, #98A1B3 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 600ms ease;
+}
+
+.nav-item:hover {
+  background-position: 0 100%;
+}

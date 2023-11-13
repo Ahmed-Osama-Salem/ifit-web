@@ -23,7 +23,7 @@ const MainLayout = (props: MainLayoutProps) => {
       <Container
         tag="div"
         bgColor="bg-gradient-to-b from-yellow-light to-transparent via-transparent"
-        className="h-auto min-h-screen w-full max-w-[1920px] px-[60px]"
+        className="h-auto min-h-screen w-full max-w-[1920px] px-[150px]"
       >
         {props.children}
       </Container>
