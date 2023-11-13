@@ -22,7 +22,7 @@ const Container: FC<ContainerProps> = ({
     tag,
     {
       className: classNames(
-        bgColor ?? 'bg-white',
+        bgColor ?? 'bg-none',
         {
           flex: flexDirection !== 'column',
           'flex-col': flexDirection === 'column',
