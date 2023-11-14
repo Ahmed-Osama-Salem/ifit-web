@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { UserModel } from '@/app/[lang]/page';
 
 import Container from '../elements/Container';
-import Navbar from '../modules/Navbar';
+import Navbar from '../modules/navbar/Navbar';
 import Popup from '../modules/Popup';
 
 interface MainLayoutProps {
