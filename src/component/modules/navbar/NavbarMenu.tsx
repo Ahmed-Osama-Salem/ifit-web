@@ -18,7 +18,7 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
     {
       id: 2,
       label: 'Articles',
-      href: `/${lang}/articles`,
+      href: `/${lang}/blog`,
       x: 30,
       delay: 0.45,
     },
@@ -33,8 +33,8 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
   ];
 
   const navigationTags = [
-    { id: 1, label: 'Ask now', href: '/', x: 20, delay: 0.25 },
-    { id: 2, label: 'Blog', href: '/', x: 30, delay: 0.45 },
+    { id: 1, label: 'Ask now', href: `/${lang}/question`, x: 20, delay: 0.25 },
+    { id: 2, label: 'Blog', href: `/${lang}/blog`, x: 30, delay: 0.45 },
     { id: 3, label: 'Contact us', href: '/', x: 40, delay: 0.65 },
   ];
 
@@ -62,19 +62,20 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
             <div className="flex gap-4 rounded-full">
               {navigationTags.map((el) => {
                 return (
-                  <button
-                    key={el.id}
-                    type="button"
-                    className="group relative rounded-full border-[1px] px-4 transition-colors duration-200 ease-linear hover:bg-yellow-normal"
-                  >
-                    {/* <div className="absolute left-0 h-full w-full rounded-full bg-black-normal group-hover:opacity-60" /> */}
-                    <TypographyText
-                      tag="p"
-                      className="text-3xl font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white"
+                  <Link key={el.id} href={el.href}>
+                    <button
+                      type="button"
+                      className="group relative rounded-full border-[1px] px-4 transition-colors duration-200 ease-linear hover:bg-yellow-normal"
                     >
-                      {el.label}
-                    </TypographyText>
-                  </button>
+                      {/* <div className="absolute left-0 h-full w-full rounded-full bg-black-normal group-hover:opacity-60" /> */}
+                      <TypographyText
+                        tag="p"
+                        className="text-3xl font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white"
+                      >
+                        {el.label}
+                      </TypographyText>
+                    </button>
+                  </Link>
                 );
               })}
             </div>
