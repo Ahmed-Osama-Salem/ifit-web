@@ -4,6 +4,7 @@ import '@/component/modules/navbar/navbar.css';
 
 import { AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -18,14 +19,18 @@ import AuthModal from '../auth/AuthModal';
 import Hamburger from './Hamburger';
 import NavbarMenu from './NavbarMenu';
 
-const Navbar = ({ user }: { user?: UserModel }) => {
+const Navbar = ({ user, lang }: { user?: UserModel; lang: string }) => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
 
   const toggleNavbar = (): void => {
     setIsOpen(!isOpen);
   };
-  // const pathname = usePathname();
+  const pathname = usePathname();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isOpen) setIsOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
@@ -93,7 +98,7 @@ const Navbar = ({ user }: { user?: UserModel }) => {
         )}
       </Container>
       <AnimatePresence initial={false} mode="wait">
-        {isOpen && <NavbarMenu />}
+        {isOpen && <NavbarMenu lang={lang} />}
       </AnimatePresence>
     </>
   );
