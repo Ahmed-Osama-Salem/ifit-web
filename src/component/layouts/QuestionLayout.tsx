@@ -17,7 +17,7 @@ const QuestionLayout = (props: QuestionLayoutProps) => {
         tag="main"
         className="h-[100%] w-[30%] rounded-t-3xl bg-yellow-light px-5 py-7"
       >
-        <article className="h-full rounded-t-3xl bg-white">
+        <article className="h-full rounded-t-3xl bg-white p-7">
           {props.children}
         </article>
       </Container>
