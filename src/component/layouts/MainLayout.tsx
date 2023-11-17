@@ -9,6 +9,7 @@ import Popup from '../modules/Popup';
 interface MainLayoutProps {
   children: ReactNode;
   user?: UserModel | undefined;
+  lang: string;
 }
 
 const MainLayout = (props: MainLayoutProps) => {
@@ -18,7 +19,7 @@ const MainLayout = (props: MainLayoutProps) => {
       className="flex flex-col items-center justify-center"
       tag="section"
     >
-      <Navbar user={props.user} />
+      <Navbar user={props.user} lang={props.lang} />
       <Popup />
       <Container
         tag="div"

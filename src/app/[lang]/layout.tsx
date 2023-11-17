@@ -51,7 +51,9 @@ export default async function RootLayout({
       <body className={nunito.className}>
         <NextAuthProvider>
           <ReduxProvider>
-            <MainLayout user={props.user}>{children}</MainLayout>
+            <MainLayout user={props.user} lang={params.lang}>
+              {children}
+            </MainLayout>
           </ReduxProvider>
         </NextAuthProvider>
       </body>

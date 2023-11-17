@@ -1,16 +1,35 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 import Container from '@/component/elements/Container';
 import TypographyText from '@/component/elements/Typography';
 
-const NavbarMenu = () => {
+const NavbarMenu = ({ lang }: { lang: string }) => {
   const navigationTabs = [
-    { id: 1, label: 'My Questions', href: '/', x: 20, delay: 0.25 },
-    { id: 2, label: 'Articles', href: '/', x: 30, delay: 0.45 },
-    { id: 3, label: 'Home', href: '/', x: 40, delay: 0.65 },
-    { id: 4, label: 'My Setting', href: '/', x: 50, delay: 0.75 },
+    {
+      id: 1,
+      label: 'My Questions',
+      href: `/${lang}/question`,
+      x: 20,
+      delay: 0.25,
+    },
+    {
+      id: 2,
+      label: 'Articles',
+      href: `/${lang}/articles`,
+      x: 30,
+      delay: 0.45,
+    },
+    { id: 3, label: 'Home', href: `/${lang}`, x: 40, delay: 0.65 },
+    {
+      id: 4,
+      label: 'My Setting',
+      href: `/${lang}/settings`,
+      x: 50,
+      delay: 0.75,
+    },
   ];
 
   const navigationTags = [
@@ -18,6 +37,7 @@ const NavbarMenu = () => {
     { id: 2, label: 'Blog', href: '/', x: 30, delay: 0.45 },
     { id: 3, label: 'Contact us', href: '/', x: 40, delay: 0.65 },
   ];
+
   return (
     <motion.article
       initial={{ opacity: 0 }}
@@ -37,25 +57,27 @@ const NavbarMenu = () => {
             bgColor="bg-none"
             flexDirection="row"
             tag="div"
-            className="flex gap-3 py-10"
+            className="py-10"
           >
-            {navigationTags.map((el) => {
-              return (
-                <button
-                  key={el.id}
-                  type="button"
-                  className="group relative rounded-full border-[1px] px-4 transition-colors duration-200 ease-linear hover:bg-yellow-normal"
-                >
-                  {/* <div className="absolute left-0 h-full w-full rounded-full bg-black-normal/40" /> */}
-                  <TypographyText
-                    tag="p"
-                    className="text-2xl font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white"
+            <div className="flex gap-4 rounded-full">
+              {navigationTags.map((el) => {
+                return (
+                  <button
+                    key={el.id}
+                    type="button"
+                    className="group relative rounded-full border-[1px] px-4 transition-colors duration-200 ease-linear hover:bg-yellow-normal"
                   >
-                    {el.label}
-                  </TypographyText>
-                </button>
-              );
-            })}
+                    {/* <div className="absolute left-0 h-full w-full rounded-full bg-black-normal group-hover:opacity-60" /> */}
+                    <TypographyText
+                      tag="p"
+                      className="text-3xl font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white"
+                    >
+                      {el.label}
+                    </TypographyText>
+                  </button>
+                );
+              })}
+            </div>
           </Container>
         </motion.div>
         <Container
@@ -81,12 +103,14 @@ const NavbarMenu = () => {
                 }}
                 exit={{ opacity: 0 }}
               >
-                <TypographyText
-                  tag="h3"
-                  className="nav-item w-fit cursor-pointer text-[5rem] font-bold uppercase"
-                >
-                  {el.label}
-                </TypographyText>
+                <Link href={el.href}>
+                  <TypographyText
+                    tag="h3"
+                    className="nav-item w-fit cursor-pointer text-[5rem] font-bold uppercase"
+                  >
+                    {el.label}
+                  </TypographyText>
+                </Link>
               </motion.h3>
             ))}
           </div>
