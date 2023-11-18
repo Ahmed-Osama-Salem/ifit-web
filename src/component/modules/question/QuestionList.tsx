@@ -6,7 +6,7 @@ import QuestionCard from './QuestionCard';
 
 const QuestionList = () => {
   return (
-    <Container flexDirection="column" className="flex flex-col gap-7">
+    <Container flexDirection="column" className="flex flex-col gap-7 ">
       <Container flexDirection="row" className="flex gap-3">
         <Button
           bgType="default"
@@ -32,9 +32,11 @@ const QuestionList = () => {
         >
           My questions
         </TypographyText>
-        {[1, 2, 3, 4, 5].map((i) => {
-          return <QuestionCard key={i} />;
-        })}
+        <Container className="h-[65vh] overflow-y-auto py-1">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
+            return <QuestionCard key={i} />;
+          })}
+        </Container>
       </Container>
     </Container>
   );
