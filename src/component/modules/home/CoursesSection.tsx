@@ -67,12 +67,12 @@ export const courses: CourseCardProps[] = [
 
 const CoursesSection = () => {
   return (
-    <Container bgColor="bg-none mt-12">
+    <Container bgColor="mt-12">
       <HeaderBar title="Our Courses" />
       <Container
-        bgColor="bg-none"
+        // bgColor="bg-none"
         flexDirection="row"
-        className="mt-3 grid grid-cols-3 gap-8"
+        className="mt-3 grid w-full grid-cols-3 gap-20"
       >
         {/* Course Card */}
         {courses.map((item: CourseCardProps) => {
@@ -80,7 +80,7 @@ const CoursesSection = () => {
             <Container
               flexDirection="column"
               key={item.id}
-              className="flex h-96 w-96 basis-96 flex-col gap-2"
+              className="flex h-96 w-full basis-96 flex-col gap-2"
             >
               <div className="relative h-72 w-full rounded-lg">
                 <Image

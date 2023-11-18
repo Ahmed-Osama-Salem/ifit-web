@@ -42,6 +42,16 @@ module.exports = {
           normal: '#000000',
           dark: '#000000',
         },
+        green: {
+          light: '#2CE27F',
+          normal: '#50cd89',
+        },
+        orange: {
+          normal: '#F6C000',
+        },
+        red: {
+          normal: '#DC362E',
+        },
         /* NextBit design system */
         main: { default: '#F6E117', light: '#FEFCE8' },
         critical: { default: '#f1416c', light: '#fcd9e2' },

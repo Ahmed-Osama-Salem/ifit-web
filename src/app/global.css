@@ -11,6 +11,28 @@
   @apply transition-all duration-150 ease-linear shadow-md hover:shadow-sm 
 }
 
+/*Scroll-bar classes*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #E3E3E3E3;
+; 
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999999; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: gray; 
+  }
+
 
 
 @tailwind components;

@@ -38,7 +38,7 @@ const QuestionCard = ({
           <Image
             src={questionImage}
             alt="userImage"
-            className="h-9 w-9 rounded-full object-fill"
+            className="h-9 w-9 rounded-full object-cover"
             fill
           />
         </div>

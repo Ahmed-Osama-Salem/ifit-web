@@ -11,11 +11,11 @@ const QuestionLayout = (props: QuestionLayoutProps) => {
     <Container
       tag="section"
       flexDirection="row"
-      className="flex h-[90px] min-h-screen w-full max-w-full flex-row items-center justify-center gap-8 pt-[120px]"
+      className="flex max-h-screen w-full max-w-full flex-row items-center justify-center gap-8 overflow-y-hidden pt-[160px]"
     >
       <Container
         tag="main"
-        className="h-[100%] w-[30%] rounded-t-3xl bg-yellow-light px-5 py-7"
+        className="h-[93vh] w-[30%] rounded-t-3xl bg-yellow-light px-5 py-7"
       >
         <article className="h-full rounded-t-3xl bg-white p-7">
           {props.children}
@@ -23,7 +23,7 @@ const QuestionLayout = (props: QuestionLayoutProps) => {
       </Container>
       <Container
         tag="main"
-        className="h-[100%] w-[70%] rounded-t-3xl bg-yellow-light px-5 py-7"
+        className="h-[93vh] w-[70%] rounded-t-3xl bg-yellow-light px-5 py-7"
       >
         <article className="h-full rounded-t-3xl bg-white">
           {props.dependChildren}
