@@ -1,9 +1,9 @@
 import React from 'react';
 
 import TypographyText from '@/component/elements/Typography';
+import MainBlogCard from '@/component/modules/blog/MainBlogCard';
+import MiniCardWrapper from '@/component/modules/blog/MiniCardWrapper';
 import RegularArticalCard from '@/component/modules/blog/RegularArticalCard';
-import MainBlogCard from '@/component/modules/blog2/MainBlogCard';
-import MiniCardBlog from '@/component/modules/blog2/MiniCardBlog';
 import Tag from '@/component/modules/Tag';
 
 const Blog = () => {
@@ -41,9 +41,7 @@ const Blog = () => {
             <RegularArticalCard />
           </div>
         </div>
-        <div className="w-full ">
-          <MiniCardBlog />
-        </div>
+        <MiniCardWrapper />
       </div>
     </div>
   );

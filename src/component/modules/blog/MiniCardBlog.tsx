@@ -1,9 +1,16 @@
 import React from 'react';
 
+import type { Blog } from '@/apps/interface/Blog';
 import TypographyText from '@/component/elements/Typography';
 import mainImage from '@/public/assets/images/image-1.png';
 
-const MiniCardBlog = () => {
+interface MiniCardBlogProps {
+  blog: Blog;
+}
+const MiniCardBlog = (props: MiniCardBlogProps) => {
+  const { blog } = props;
+  const date = new Date(blog.date);
+
   return (
     <div className="flex w-full min-w-min max-w-sm flex-col gap-4 rounded-xl border border-[#D9D9D980] ">
       <div className="flex w-full flex-col gap-3 p-3">
@@ -17,13 +24,12 @@ const MiniCardBlog = () => {
             </TypographyText>
           </div>
           <TypographyText tag="h3" className=" text-xl ">
-            Power engineering
+            {blog.title}
           </TypographyText>
           <TypographyText tag="p" className=" text-base text-gray-light ">
-            Imagine that youve created your HelloFresh bundle, and the weekly
-            price is
+            {blog.description}
           </TypographyText>
-          <div className="flex  w-full items-center justify-between ">
+          <div className="flex w-full    items-center justify-between   ">
             <div className="flex items-center gap-5">
               <img
                 src={mainImage.src}
@@ -34,12 +40,17 @@ const MiniCardBlog = () => {
                 tag="p"
                 className=" text-sm font-semibold text-gray-light "
               >
-                Fady Adalat
+                {blog.author}
               </TypographyText>
             </div>
             <div className="">
               <TypographyText tag="p" className=" text-xs text-gray-light">
-                7 Jun <span className="mx-1">&#x2022;</span>7 min Read
+                {date.getDay()}{' '}
+                {date.toLocaleString('en-US', {
+                  month: 'short',
+                  timeZone: 'UTC',
+                })}{' '}
+                <span className="mx-1">&#x2022;</span>7 min Read
               </TypographyText>
             </div>
           </div>

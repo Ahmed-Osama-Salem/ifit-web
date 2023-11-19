@@ -1,5 +1,7 @@
 const blogEndpoints = {
-  index: '',
+  index: '/',
+  blog: 'posts',
+  question: 'question',
 };
 
 export { blogEndpoints };
