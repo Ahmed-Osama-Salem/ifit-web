@@ -21,6 +21,7 @@ import NavbarMenu from './NavbarMenu';
 
 const Navbar = ({ user, lang }: { user?: UserModel; lang: string }) => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [scrolling, setScrolling] = useState(false);
 
   const toggleNavbar = (): void => {
     setIsOpen(!isOpen);
@@ -40,12 +41,25 @@ const Navbar = ({ user, lang }: { user?: UserModel; lang: string }) => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolling(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <Container
         flexDirection="row"
-        bgColor="bg-white"
-        className="fixed top-0 z-10 flex h-[87px] w-full items-center justify-between px-[150px]"
+        bgColor={scrolling ? 'bg-white shadow-md' : 'bg-yellow-light'}
+        className="fixed top-0 z-10 flex h-[87px] w-full items-center  px-[40px]  transition-all duration-150 ease-linear sm:justify-between lg:px-[150px]"
       >
         <Container
           bgColor="none"
@@ -56,14 +70,16 @@ const Navbar = ({ user, lang }: { user?: UserModel; lang: string }) => {
         </Container>
         <Container
           flexDirection="row"
-          bgColor="bg-white"
+          bgColor="bg-none"
           className="flex h-full items-center"
         >
           {/* <img src={logo.src} className="h-auto w-[4rem]" alt="ifit" /> */}
-          <Image src={logo.src} alt="ifit" width={64} height={100} />
+          <div className="relative h-[80px] w-[54px] xl:h-[100px] xl:w-[64px]">
+            <Image src={logo.src} alt="ifit" fill className="object-contain" />
+          </div>
           <TypographyText
             tag="h3"
-            className="translate-x-[-10px] pt-2 text-[36px] font-bold text-brown-normal"
+            className="translate-x-[-10px] pt-2 text-[30px] font-bold text-brown-normal xl:text-[36px]"
           >
             i Fit
           </TypographyText>
@@ -74,6 +90,7 @@ const Navbar = ({ user, lang }: { user?: UserModel; lang: string }) => {
             bgClass="btn_main"
             rounded="rounded-[100px]"
             padding="px-6 py-2"
+            className="hidden sm:block"
             onClick={() => {
               dispatch(setPopupName('Auth'));
               dispatch(showPopup(<AuthModal />));

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import Container from '@/component/elements/Container';
 import TypographyText from '@/component/elements/Typography';
 
@@ -11,21 +13,22 @@ const TopSmallArticalCard = () => {
       <Container bgColor="none" flexDirection="row" className="flex gap-10">
         <TypographyText
           tag="p"
-          className="text-[14px] font-bold text-black-normal"
+          className="text-[14px] font-bold text-gray-normal"
         >
           Author
         </TypographyText>
         <TypographyText
           tag="p"
-          className="text-[14px] font-bold text-black-normal"
+          className="text-[14px] font-medium text-gray-light"
         >
           view reads
         </TypographyText>
       </Container>
-      <Container bgColor="none" className="h-[220px] w-full">
-        <img
+      <Container bgColor="none" className="relative h-[220px] w-full">
+        <Image
           alt="artical"
-          className="h-full w-full rounded-2xl object-cover "
+          fill
+          className="rounded-2xl object-cover "
           src="https://images.unsplash.com/photo-1581092459682-ccfffd6ddc37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
         />
       </Container>
@@ -38,7 +41,7 @@ const TopSmallArticalCard = () => {
         </TypographyText>
         <TypographyText
           tag="p"
-          className=" text-[16px] font-bold text-black-normal"
+          className=" text-[16px] font-medium text-gray-normal"
         >
           The best choices for power engineeringThe best choices for power
           engineering st choices for power engineering

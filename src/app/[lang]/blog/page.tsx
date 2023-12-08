@@ -22,20 +22,19 @@ const Blog = () => {
             text="text-gray-light"
             content="Engineering 3"
           />
-          <Tag
+          {/* <Tag
             background="bg-none"
             text="text-gray-light"
             content="Engineering 3"
-          />
+          /> */}
         </div>
       </div>
-      <div className="flex flex-col gap-10">
-        <div className="mt-7 flex gap-10">
-          <div className="w-2/3">
+      <div className="flex flex-col gap-14 xl:gap-10">
+        <div className="mt-7 flex flex-col gap-14 xl:flex-row xl:gap-10">
+          <div className="xl:w-2/3">
             <MainBlogCard />
           </div>
-          {/* <div className="flex w-full max-w-[650px] flex-col gap-8"> */}
-          <div className=" flex w-2/3 flex-col gap-8">
+          <div className=" flex flex-col gap-8 xl:w-2/3">
             <RegularArticalCard />
             <RegularArticalCard />
             <RegularArticalCard />

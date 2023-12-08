@@ -27,7 +27,7 @@ const MainBlogCard = () => {
           price is £35. Youre likely to do some napkin maths.
         </TypographyText>
       </div>
-      <div className="flex w-1/2 items-center justify-between ">
+      <div className="flex items-center justify-between xl:w-1/2 ">
         <div className="flex items-center gap-5">
           <img
             src={mainImage.src}
