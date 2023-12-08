@@ -44,7 +44,7 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
-      className="fixed left-0 top-[87px] z-10 h-[90vh] w-full bg-yellow-light px-[150px]"
+      className="fixed left-0 top-[87px] z-10 h-[90vh] w-full bg-yellow-light px-[40px] lg:px-[150px]"
     >
       <Container tag="main" bgColor="bg-none" flexDirection="column">
         <motion.div
@@ -65,12 +65,12 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
                   <Link key={el.id} href={el.href}>
                     <button
                       type="button"
-                      className="group relative rounded-full border-[1px] px-4 transition-colors duration-200 ease-linear hover:bg-yellow-normal"
+                      className="group relative rounded-full border-[1px] px-2 transition-colors duration-200 ease-linear hover:bg-yellow-normal xl:px-4"
                     >
                       {/* <div className="absolute left-0 h-full w-full rounded-full bg-black-normal group-hover:opacity-60" /> */}
                       <TypographyText
                         tag="p"
-                        className="text-3xl font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white"
+                        className="text-lg font-bold text-brown-normal transition-colors duration-200 ease-in-out group-hover:text-white xl:text-3xl"
                       >
                         {el.label}
                       </TypographyText>
@@ -92,7 +92,7 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
           transition={{ duration: 0.5, staggerChildren: 0.1 }}
           exit={{ opacity: 0 }}
         >
-          <div className="w-[40%] py-2">
+          <div className="space-y-3 py-2 xl:w-[40%]">
             {navigationTabs.map((el) => (
               <motion.h3
                 key={el.id}
@@ -107,7 +107,7 @@ const NavbarMenu = ({ lang }: { lang: string }) => {
                 <Link href={el.href}>
                   <TypographyText
                     tag="h3"
-                    className="nav-item w-fit cursor-pointer text-[5rem] font-bold uppercase"
+                    className="nav-item desktop:text-[5rem] w-fit cursor-pointer text-[1.7rem] font-bold uppercase md:text-[2rem] lg:text-[3rem] xl:text-[4rem]"
                   >
                     {el.label}
                   </TypographyText>

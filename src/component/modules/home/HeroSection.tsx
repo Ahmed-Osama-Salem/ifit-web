@@ -11,17 +11,17 @@ const HeroSection = ({ dict }: { dict: any }) => {
     <Container
       bgColor="none"
       flexDirection="column"
-      className="flex h-[75vh] items-center justify-center gap-[30px]"
+      className="mt-7 flex h-[75vh] items-center justify-center gap-10 sm:mt-0 lg:gap-[30px]"
     >
       {/* <LangSwitch /> */}
       <TypographyText
         tag="span"
-        className="text-[57px] font-bold text-brown-normal"
+        className="text-[44px] font-bold text-brown-normal lg:text-[57px] xl:text-[70px]"
       >
         {`${dict.Index.title} `}
         <TypographyText
           tag="span"
-          className="mx-1 text-[57px] font-bold text-yellow-normal"
+          className="mx-1 text-justify text-[44px]  font-bold text-yellow-normal lg:text-[57px] xl:text-[70px]"
         >
           {` ${dict.Index.brand} `}
         </TypographyText>
@@ -34,14 +34,14 @@ const HeroSection = ({ dict }: { dict: any }) => {
       >
         <TypographyText
           tag="p"
-          className="text-[24px] font-bold text-brown-normal"
+          className="text-[18px] font-bold text-brown-normal lg:text-[24px] xl:text-[30px]"
         >
           {`${dict.Index.slogan1} `}
           {/* Now with Ifit you can answer for all questions you need and learn */}
         </TypographyText>
         <TypographyText
           tag="p"
-          className="text-[24px] font-bold text-brown-normal"
+          className="text-[18px] font-bold text-brown-normal lg:text-[24px] xl:text-[30px]"
         >
           {`${dict.Index.slogan2} `}
           {/* more about work for article and blogs to be brans and tob el nob */}

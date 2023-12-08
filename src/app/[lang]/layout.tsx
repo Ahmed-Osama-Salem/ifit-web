@@ -13,8 +13,9 @@ const nunito = Nunito({ subsets: ['latin'] });
 // const cairo = Cairo({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'I fit',
-  description: 'ifit ..',
+  title: 'I Fit',
+  description:
+    'ifit is a platform  can answer for all questions you need and learn more about work for article and blogs',
   icons: {
     icon: '/favicon_package/favicon.ico',
     apple: '/favicon_package/apple-touch-icon.png',

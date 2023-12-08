@@ -70,38 +70,31 @@ const CoursesSection = () => {
     <Container bgColor="mt-12">
       <HeaderBar title="Our Courses" />
       <Container
-        // bgColor="bg-none"
         flexDirection="row"
-        className="mt-3 grid w-full grid-cols-3 gap-20"
+        className="mt-3 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
       >
         {/* Course Card */}
-        {courses.map((item: CourseCardProps) => {
-          return (
-            <Container
-              flexDirection="column"
-              key={item.id}
-              className="flex h-96 w-full basis-96 flex-col gap-2"
-            >
-              <div className="relative h-72 w-full rounded-lg">
-                <Image
-                  alt="courseImage"
-                  src={item.img}
-                  className="rounded-lg object-fill"
-                  fill
-                />
-              </div>
-              <TypographyText tag="span" className="text-base text-gray-light">
-                {item.instructor}
-              </TypographyText>
-              <TypographyText tag="h2" className="text-2xl text-gray-dark">
-                {item.title}
-              </TypographyText>
-              <TypographyText tag="p" className="text-base text-gray-light">
-                {item.discription}
-              </TypographyText>
-            </Container>
-          );
-        })}
+        {courses.map((item: CourseCardProps) => (
+          <Container key={item.id} className="flex flex-col gap-2">
+            <div className="relative h-48 w-full overflow-hidden rounded-lg md:h-56 lg:h-72">
+              <Image
+                alt="courseImage"
+                src={item.img}
+                className="rounded-lg object-cover"
+                fill
+              />
+            </div>
+            <TypographyText tag="span" className="text-base text-gray-light">
+              {item.instructor}
+            </TypographyText>
+            <TypographyText tag="h2" className="text-2xl text-gray-dark">
+              {item.title}
+            </TypographyText>
+            <TypographyText tag="p" className="text-base text-gray-light">
+              {item.discription}
+            </TypographyText>
+          </Container>
+        ))}
       </Container>
     </Container>
   );
