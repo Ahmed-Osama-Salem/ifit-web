@@ -7,7 +7,7 @@ import { PiFileCodeFill } from 'react-icons/pi';
 import type { DefaultStyle, LightStyle } from '@/apps/interface/element';
 
 import Container from './Container';
-import { TypographyText } from './Typography';
+import TypographyText from './Typography';
 
 export const alertClasses = {
   alert_standard: {
@@ -78,7 +78,7 @@ const Alert = (props: AlertProps) => {
           <TypographyText tag="p" className="text-xl font-bold">
             {props.title}
           </TypographyText>
-          <TypographyText tag="p" className="text-black/60">
+          <TypographyText tag="p" className="text-black-normal/60">
             {props.description}
           </TypographyText>
         </Container>

@@ -1,3 +1,5 @@
+'use client';
+
 import type { ReactNode } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,12 +13,12 @@ export interface PopupProps {
 }
 
 const withPopup = <P extends object>(
-  WrappedComponent: React.ComponentType<P>
+  WrappedComponent: React.ComponentType<P>,
 ) => {
   const Popup = (props: P & PopupProps) => {
     const dispatch = useDispatch();
     const { isVisible, content } = useSelector(
-      (state: RootState) => state.popup
+      (state: RootState) => state.popup,
     );
 
     const handlePopupClose = () => {
@@ -30,11 +32,11 @@ const withPopup = <P extends object>(
           <div
             onClick={() => handlePopupClose()}
             role="presentation"
-            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/50"
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-black-normal/50"
           >
             <Container
               onClick={(e) => e.stopPropagation()}
-              className="relative h-[20rem]  w-fit min-w-[30rem] rounded bg-white"
+              className="relative min-h-[20rem]  w-fit min-w-[30rem] rounded bg-white"
             >
               <Container
                 onClick={() => {

@@ -6,7 +6,7 @@ type ContainerTag = 'section' | 'div' | 'main' | 'header' | 'footer';
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   tag?: ContainerTag;
-  flexDirection?: 'row' | 'column';
+  flexDirection?: 'row' | 'column' | '';
   bgColor?: string;
   children?: ReactNode;
 }
@@ -22,17 +22,17 @@ const Container: FC<ContainerProps> = ({
     tag,
     {
       className: classNames(
-        bgColor ?? 'bg-white',
+        bgColor ?? 'bg-none',
         {
           flex: flexDirection !== 'column',
           'flex-col': flexDirection === 'column',
           'flex-row': flexDirection === 'row',
         },
-        className
+        className,
       ),
       ...rest,
     },
-    children
+    children,
   );
 };
 

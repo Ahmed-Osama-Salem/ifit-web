@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 import type { TextProps } from '@/apps/interface/Elements';
 
-import { TypographyText } from '../Typography';
+import TypographyText from '../Typography';
 
 const TextAreaField: React.FC<TextProps & FieldAttributes<TextProps>> = ({
   name,

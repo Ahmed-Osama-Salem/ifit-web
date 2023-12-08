@@ -1,0 +1,40 @@
+@tailwind base;
+
+/*Alert classes*/
+.alert {
+  @apply flex min-h-[70px] h-auto w-full items-center justify-between rounded-md px-6 py-2 
+}
+
+/*Button classes*/
+
+.button {
+  @apply transition-all duration-150 ease-linear shadow-md hover:shadow-sm 
+}
+
+/*Scroll-bar classes*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #E3E3E3E3;
+; 
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999999; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: gray; 
+  }
+
+
+
+@tailwind components;
+@tailwind utilities;
+
