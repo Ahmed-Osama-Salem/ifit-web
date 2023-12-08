@@ -12,9 +12,9 @@ function getLocale(request) {
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;
-  console.log('====================================');
-  console.log(pathname);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(pathname);
+  // console.log('====================================');
   // Check if the pathname starts with a supported locale
   const localeMatch = pathname.match(/^\/(en|ar)\b/);
   if (localeMatch) {
@@ -26,9 +26,9 @@ export function middleware(request) {
 
   // Redirect if there is no locale in the pathname
   const locale = getLocale(request);
-  console.log('====================================');
-  console.log(locale);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(locale);
+  // console.log('====================================');
   request.nextUrl.pathname = `/${locale}${pathname}`;
   Response.redirect(request.nextUrl);
 }
